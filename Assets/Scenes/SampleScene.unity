@@ -1716,6 +1716,54 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1339263590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339263592}
+  - component: {fileID: 1339263591}
+  m_Layer: 0
+  m_Name: '[UIController]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1339263591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339263590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d94d6508b6b604cb94b2c8c9482091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 172954308}
+  clickPowerPriceText: {fileID: 1302128419}
+  PPSPriceText: {fileID: 799737171}
+  BonusProbabilityPriceText: {fileID: 1036110550}
+--- !u!4 &1339263592
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339263590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394352746
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,7 +2111,7 @@ GameObject:
   - component: {fileID: 1704469802}
   - component: {fileID: 1704469801}
   m_Layer: 0
-  m_Name: '[GameController]'
+  m_Name: '[ClickerController]'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2081,10 +2129,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6984f14b70125247a24e3418dc9f17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 172954308}
-  clickPowerPriceText: {fileID: 1302128419}
-  PPSPriceText: {fileID: 799737171}
-  BonusProbabilityPriceText: {fileID: 1036110550}
+  OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBonusTrigger:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCooldownReset:
+    m_PersistentCalls:
+      m_Calls: []
+  OnIncreaseScore:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDecreaseScore:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBuy_ClickPower:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBuy_PPS:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBuy_BonusProbability:
+    m_PersistentCalls:
+      m_Calls: []
+  OnUnsuccessfulBuy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1704469802
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,7 +2165,7 @@ Transform:
   m_GameObject: {fileID: 1704469800}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 703.8029, y: 371.9079, z: 2.6215131}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2290,3 +2361,4 @@ SceneRoots:
   - {fileID: 1718549975}
   - {fileID: 1535298590}
   - {fileID: 1704469802}
+  - {fileID: 1339263592}
