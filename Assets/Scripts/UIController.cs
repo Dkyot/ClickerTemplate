@@ -4,13 +4,26 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
+    [Header("Score text")]
     [SerializeField] private TextMeshProUGUI scoreText;
+
+    [Header("Clicker prices text")]
     [SerializeField] private TextMeshProUGUI clickPowerPriceText;
     [SerializeField] private TextMeshProUGUI PPSPriceText;
     [SerializeField] private TextMeshProUGUI BonusProbabilityPriceText;
 
+    [Header("Clicker stats text")]
+    [SerializeField] private TextMeshProUGUI clickPowerStatsText;
+    [SerializeField] private TextMeshProUGUI PPSStatsText;
+    [SerializeField] private TextMeshProUGUI BonusProbabilityStatsText;
+
+    [Header("Relationships prices text")]
+    [SerializeField] private TextMeshProUGUI placePriceText;
+    [SerializeField] private TextMeshProUGUI relationshipsPriceText;
+
     private void Awake() {
-        ClickerController.OnRefreshScore += OnRefreshScore;
+        AddClickerControllerEvents();
+        AddRelationshipsControllerEvents();
     }
 
     #region Events methods
@@ -26,11 +39,25 @@ public class UIController : MonoBehaviour
 
     }
 
-    private void OnRefreshScore(ulong a, uint b, uint c, uint d) {
+    private void OnRefreshScore(ulong a) {
         scoreText.text = a.ToString();
+    }
+
+    private void OnRefreshPrices_Clicker(uint b, uint c, uint d) {
         clickPowerPriceText.text = b.ToString();
         PPSPriceText.text = c.ToString();
         BonusProbabilityPriceText.text = d.ToString();
+    }
+
+    private void OnRefreshCurrentStats_Clicker(uint b, uint c, float d) {
+        clickPowerStatsText.text = b.ToString();
+        PPSStatsText.text = c.ToString();
+        BonusProbabilityStatsText.text = d.ToString();
+    }
+
+    private void OnRefreshPrices_Relationships(uint b, uint c) {
+        placePriceText.text = b.ToString();
+        relationshipsPriceText.text = c.ToString();
     }
 
     private void OnIncreaseScore() {
@@ -55,6 +82,18 @@ public class UIController : MonoBehaviour
 
     private void OnUnsuccessfulBuy() {
 
+    }
+    #endregion
+
+    #region Event subscriptions
+    private void AddClickerControllerEvents() {
+        ClickerController.OnRefreshScore += OnRefreshScore;
+        ClickerController.OnRefreshPrices += OnRefreshPrices_Clicker;
+        ClickerController.OnRefreshCurrentStats += OnRefreshCurrentStats_Clicker;
+    }
+
+    private void AddRelationshipsControllerEvents() {
+        RelationshipsController.OnRefreshPrices += OnRefreshPrices_Relationships;
     }
     #endregion
 }

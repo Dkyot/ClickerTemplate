@@ -17,15 +17,19 @@ public class ClickerController : MonoBehaviour
     private float timer = 0;
     private float cooldown = 1;
 
-
-
     public UnityEvent OnClick;
     public UnityEvent OnBonusTrigger;
 
     public UnityEvent OnCooldownReset;
 
-    public delegate void OnRefreshScoreDelegate(ulong a, uint b, uint c, uint d);
+    public delegate void OnRefreshScoreDelegate(ulong a);
 	public static event OnRefreshScoreDelegate OnRefreshScore;
+
+    public delegate void OnRefreshPricesDelegate(uint b, uint c, uint d);
+	public static event OnRefreshPricesDelegate OnRefreshPrices;
+
+    public delegate void OnRefreshCurrentStatsDelegate(uint b, uint c, float d);
+	public static event OnRefreshCurrentStatsDelegate OnRefreshCurrentStats;
 
     public UnityEvent OnIncreaseScore;
     public UnityEvent OnDecreaseScore;
@@ -35,10 +39,9 @@ public class ClickerController : MonoBehaviour
     public UnityEvent OnBuy_BonusProbability;
     public UnityEvent OnUnsuccessfulBuy;
 
-
-
     private void Start() {
-        RefreshUI();
+        RefreshUIScore();
+        RefreshUIPrices();
     }
 
     private void Update() {
@@ -48,9 +51,22 @@ public class ClickerController : MonoBehaviour
 
             OnCooldownReset?.Invoke();
 
-            RefreshUI();
+            RefreshUIScore();
             timer = 0;
         }
+    }
+
+    public bool Buy(uint cost) {
+        if (score >= cost) {
+            score -= cost;
+
+            OnDecreaseScore?.Invoke();
+            RefreshUIScore();
+
+            return true;
+        }
+        OnUnsuccessfulBuy?.Invoke();
+        return false;
     }
 
     #region Button methods
@@ -61,7 +77,7 @@ public class ClickerController : MonoBehaviour
         OnIncreaseScore?.Invoke();
 
         RandomBonus();
-        RefreshUI();
+        RefreshUIScore();
     }
 
     public void BuyClickPower() {
@@ -74,7 +90,8 @@ public class ClickerController : MonoBehaviour
 
             upgradePriceClickPower *= 2;
 
-            RefreshUI();
+            RefreshUIPrices();
+            RefreshUIScore();
         }
         OnUnsuccessfulBuy?.Invoke();
     }
@@ -89,7 +106,8 @@ public class ClickerController : MonoBehaviour
 
             upgradePricePPS *= 3;
 
-            RefreshUI();
+            RefreshUIPrices();
+            RefreshUIScore();
         }
         OnUnsuccessfulBuy?.Invoke();
     }
@@ -104,7 +122,8 @@ public class ClickerController : MonoBehaviour
 
             upgradePriceBonusProbability *= 2;
 
-            RefreshUI();
+            RefreshUIPrices();
+            RefreshUIScore();
         }
         OnUnsuccessfulBuy?.Invoke();
     }
@@ -137,9 +156,16 @@ public class ClickerController : MonoBehaviour
 
         OnBuy_BonusProbability?.Invoke();
     }
+    #endregion
 
-    private void RefreshUI() {
-        OnRefreshScore(score, upgradePriceClickPower, upgradePricePPS, upgradePriceBonusProbability);
+    #region UI methods
+    private void RefreshUIScore() {
+        if (OnRefreshScore != null) OnRefreshScore(score);
+    }
+
+    private void RefreshUIPrices() {
+        if (OnRefreshPrices != null) OnRefreshPrices(upgradePriceClickPower, upgradePricePPS, upgradePriceBonusProbability);
+        if (OnRefreshCurrentStats != null) OnRefreshCurrentStats(clickPower, PPS, bonusProbability);
     }
     #endregion
 }
