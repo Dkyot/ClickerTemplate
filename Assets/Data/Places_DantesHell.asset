@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e36a4c9b74d4f447a36bcb22bd7bd88, type: 3}
+  m_Name: Places_DantesHell
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: ff8ed1d140070044e92f4ce27078d909, type: 3}
+  - {fileID: 21300000, guid: 74daf4622e45e154b97b9b236219e841, type: 3}
+  - {fileID: 21300000, guid: 09ed39e992e9ce34d828a938658623f5, type: 3}
+  - {fileID: 21300000, guid: c91ee4cec2338e24ebf7d465659c937c, type: 3}
+  - {fileID: 21300000, guid: 8fc6ff7955d3b69459585d7fe9ed0ded, type: 3}
+  - {fileID: 21300000, guid: 61e872f19f700514696ca885906e55a5, type: 3}
+  - {fileID: 21300000, guid: fe1f714c2dd0c2342ab4ff30a43d15f7, type: 3}
+  - {fileID: 21300000, guid: 3e57d2524b458e747aac94c35dd67a9f, type: 3}
+  - {fileID: 21300000, guid: 2f6e651f83ce8b2438159b41b9193b1b, type: 3}
+  massege:
+  - 'The first circle of hell: Limbo. After crossing the river, sinners fall into
+    Limbo. Virtuous but unbaptized souls, atheists, scientists and thinkers, innocent
+    people who lived before the coming of Christ, benefactors who profess other religions,
+    infants who died without the rite of baptism are sent here. The dead here do
+    not bear cruel punishments, but endlessly remain in limp sorrow and sorrow.'
+  - 'The second circle of hell: Voluptuousness. The second circle includes people
+    who, during their lifetime, uncontrollably indulged in carnal pleasures and lust.
+    Men and women who have lived a life of debauchery, adultery, lust and attraction
+    for whom were above morality and virtue suffer here. Crowds of souls are endlessly
+    tormented by the hurricane wind. They spin, wind in a cold storm, with screams
+    and moans they beat against the rocks on which Minos sits.'
+  - "The third circle of hell: Gluttony. In the third circle, those convicted of
+    gluttony and greed for food suffer. The guardian of the gluttonous abode is an
+    evil, three\u2013headed dog Cerberus with human clawed hands. His shaggy beard
+    is smeared with black grease, three mouths tear, gnaw and torment the dead."
+  - 'The fourth circle of hell: Greed. The fourth circle is a haven for souls convicted
+    of inability to manage money. Here, spendthrifters and misers are punished for
+    the opposite sins. They are guarded by Plutos, who was once the god of wealth
+    on the Greek Olympus, and then was cast into hell and turned into a demon.'
+  - 'The fifth circle of hell: Anger and Laziness. In a dark pool, convicts are constantly
+    fighting for intemperance in anger. Bogged down naked sinners, choking on mud,
+    tear each other to shreds, beat their feet and heads in fierce anger. Trampled
+    into the bottom of the swamp are souls so deeply harboring hatred that they are
+    only capable of despondency, laziness and sluggish boredom. Drowned in dark waters,
+    they are visible only by the air bubbles that rise from their sighs.'
+  - 'The sixth circle of hell: For heretics and false teachers. Those who spread
+    false teachings and heresy during their lifetime are kept here and suffer endlessly.
+    Their punishment is lying in red-hot graves.'
+  - 'The seventh circle of hell: For rapists and murderers of all stripes. Sinners
+    are torn apart by dogs, harpies hunt them, they are boiled in scarlet boiling
+    water, turned into trees and forced to run under streams of flame.'
+  - 'The eighth circle of hell: For the deceived. The eighth circle of hell is a
+    stone ledge in the abyss with ten circular depressions that surround the abyss
+    in the center like moats. This area in hell is called Evil Crevices. The souls
+    of deceivers are sent here. Each of the ten stone depressions of the eighth circle
+    corresponds to one type of deception.'
+  - 'The ninth circle of hell: For apostates and traitors. 9 circles of hell according
+    to Dante descend to the icy lake Cocytus, where the souls of traitors who deceived
+    people who trusted them go. The icy surface of the lake consists of four tapering
+    rings, into which sinners are frozen up to their necks. Their faces are disfigured
+    by the cold and are directed downward.'
