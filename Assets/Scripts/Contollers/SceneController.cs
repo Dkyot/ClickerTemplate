@@ -20,7 +20,7 @@ public class SceneController : MonoBehaviour
 
         characterImage.sprite = characters.sprites[0];
         backgroundImage.sprite = places.sprites[0];
-        massege.text = places.massege[0];
+        massege.text = places.messages[0].message;
     }
 
     private void ChangeBackgroundImage(int a, int b) {
@@ -28,7 +28,7 @@ public class SceneController : MonoBehaviour
             characterImage.sprite = characters.sprites[a];
         if (b < places.sprites.Count) {
             backgroundImage.sprite = places.sprites[b];
-            massege.text = places.massege[b];
+            massege.text = places.messages[b].message;
         }
     }
 

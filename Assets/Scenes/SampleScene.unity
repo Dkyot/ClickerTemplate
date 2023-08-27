@@ -474,7 +474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &106838612
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4881,6 +4881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerController: {fileID: 1704469801}
+  transitionStates: {fileID: 11400000, guid: fd292efc1f9b1e841a3baecc601ed691, type: 2}
   OnBuy_Place:
     m_PersistentCalls:
       m_Calls: []

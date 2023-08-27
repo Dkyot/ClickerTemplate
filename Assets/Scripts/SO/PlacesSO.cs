@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,5 +5,5 @@ using UnityEngine;
 public class PlacesSO : ScriptableObject
 {
     public List<Sprite> sprites;
-    public List<String> massege;
+    public List<MessageSO> messages;
 }

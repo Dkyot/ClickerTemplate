@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e36a4c9b74d4f447a36bcb22bd7bd88, type: 3}
+  m_Name: Places_DantesHell
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: ff8ed1d140070044e92f4ce27078d909, type: 3}
+  - {fileID: 21300000, guid: 74daf4622e45e154b97b9b236219e841, type: 3}
+  - {fileID: 21300000, guid: 09ed39e992e9ce34d828a938658623f5, type: 3}
+  - {fileID: 21300000, guid: c91ee4cec2338e24ebf7d465659c937c, type: 3}
+  - {fileID: 21300000, guid: 8fc6ff7955d3b69459585d7fe9ed0ded, type: 3}
+  - {fileID: 21300000, guid: 61e872f19f700514696ca885906e55a5, type: 3}
+  - {fileID: 21300000, guid: fe1f714c2dd0c2342ab4ff30a43d15f7, type: 3}
+  - {fileID: 21300000, guid: 3e57d2524b458e747aac94c35dd67a9f, type: 3}
+  - {fileID: 21300000, guid: 2f6e651f83ce8b2438159b41b9193b1b, type: 3}
+  messages:
+  - {fileID: 11400000, guid: a78985e496f437c4696c98fb502338cd, type: 2}
+  - {fileID: 11400000, guid: 006d7f6b42725b2409a995990a9a5285, type: 2}
+  - {fileID: 11400000, guid: 407bd9638a087b24bbcbb2c2531ff777, type: 2}
+  - {fileID: 11400000, guid: e695ed97ec3a080428a7832477fd52fe, type: 2}
+  - {fileID: 11400000, guid: 467fa45deb674fe4c826e83798b1a84a, type: 2}
+  - {fileID: 11400000, guid: 6fd9ed491d757e241a06e2958bdc7868, type: 2}
+  - {fileID: 11400000, guid: e9030062517432546b3652a9fde64063, type: 2}
+  - {fileID: 11400000, guid: 8edf3761dd357bf47900613797f3a68c, type: 2}
+  - {fileID: 11400000, guid: 733e9c81012a1ae4d9fd02b757d2d52e, type: 2}
