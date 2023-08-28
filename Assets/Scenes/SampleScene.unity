@@ -874,8 +874,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overlay: {fileID: 106838611}
   mainUI: {fileID: 1417866709}
-  characterSprite: {fileID: 1127819980}
-  messageText: {fileID: 212781224}
+  places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
+  characters: {fileID: 11400000, guid: 5c863ee5297b2c540ae2f58f97934b7c, type: 2}
+  characterImage: {fileID: 1127819980}
+  massege: {fileID: 212781224}
 --- !u!4 &321719173
 Transform:
   m_ObjectHideFlags: 0
@@ -3450,7 +3452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.72156864}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7882353}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3692,10 +3694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
-  characters: {fileID: 11400000, guid: 5c863ee5297b2c540ae2f58f97934b7c, type: 2}
-  characterImage: {fileID: 1127819980}
   backgroundImage: {fileID: 988524703}
-  massege: {fileID: 212781224}
 --- !u!4 &1351952398
 Transform:
   m_ObjectHideFlags: 0
@@ -4173,7 +4172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9490196}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4882,6 +4881,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickerController: {fileID: 1704469801}
   transitionStates: {fileID: 11400000, guid: fd292efc1f9b1e841a3baecc601ed691, type: 2}
+  relationshipUpgradeMessages: {fileID: 11400000, guid: f51e095b9fb549746a9bf48f321128ac, type: 2}
+  places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
+  characters: {fileID: 11400000, guid: 5c863ee5297b2c540ae2f58f97934b7c, type: 2}
   OnBuy_Place:
     m_PersistentCalls:
       m_Calls: []

@@ -10,9 +10,9 @@ public class ClickerController : MonoBehaviour
     private uint PPS = 0;
     private float bonusProbability = 0.01f;
 
-    private uint upgradePricePPS = 4;
-    private uint upgradePriceClickPower = 5;
-    private uint upgradePriceBonusProbability = 20;
+    private uint upgradePricePPS = 2;
+    private uint upgradePriceClickPower = 3;
+    private uint upgradePriceBonusProbability = 30;
 
     private float timer = 0;
     private float cooldown = 1;

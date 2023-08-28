@@ -13,12 +13,12 @@ public class TransitionStatesSO : ScriptableObject
 public class TransitionCondition_Place {
     public int placeIndex;
     public int minCharacterIndex;
-    public String failMessage;
+    public MessageSO failMessage;
 }
 
 [Serializable]
 public class TransitionCondition_Character {
     public int characterIndex;
     public int minPlaceIndex;
-    public String failMessage;
+    public MessageSO failMessage;
 }

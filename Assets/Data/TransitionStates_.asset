@@ -12,14 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225082a683ca8174d830f01c16f4fc71, type: 3}
   m_Name: TransitionStates_
   m_EditorClassIdentifier: 
-  transitions:
-  - sceneIndex: 2
+  transitionsPlace:
+  - placeIndex: 2
     minCharacterIndex: 1
-    failMessage: "\u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0430
-      \u043D\u0430 4 \u043A\u0440\u0443\u0433 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F
-      \u043F\u0440\u043E\u043A\u0430\u0447\u0430\u0442\u044C \u0414\u0430\u043D\u0442\u0435"
-  - sceneIndex: 5
+    failMessage: {fileID: 11400000, guid: 916d8f4a30f7b364e81ef486947110f0, type: 2}
+  - placeIndex: 5
     minCharacterIndex: 2
-    failMessage: "\u0434\u043B\u044F \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0430
-      \u043D\u0430 6 \u043A\u0440\u0443\u0433 \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F
-      \u043F\u0440\u043E\u043A\u0430\u0447\u0430\u0442\u044C \u0414\u0430\u043D\u0442\u0435"
+    failMessage: {fileID: 11400000, guid: c0aa7d4dcd6ba604c89c366b8f591980, type: 2}
+  transitionsCharacter:
+  - characterIndex: 0
+    minPlaceIndex: 1
+    failMessage: {fileID: 11400000, guid: 590f6b2b370f5714697786ce4d7c492b, type: 2}
+  - characterIndex: 1
+    minPlaceIndex: 4
+    failMessage: {fileID: 11400000, guid: 9bcbe9a5ba9c18c4f90b9ae370ad0d5e, type: 2}
