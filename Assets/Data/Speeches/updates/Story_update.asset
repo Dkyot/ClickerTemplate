@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad6f810ca56933c4595b88d0d609a7e4, type: 3}
+  m_Name: Story_update
+  m_EditorClassIdentifier: 
+  speeches:
+  - {fileID: 11400000, guid: 183371f77c9c56b47ba4e9801f783dbb, type: 2}
+  - {fileID: 11400000, guid: be3cc9f662068b842934bc588c74a564, type: 2}
+  - {fileID: 11400000, guid: 694bdb5b795a27143bc0eb8c963bfa7c, type: 2}

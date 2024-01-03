@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57070f814817f05449d3ecf3f0f8d78e, type: 3}
-  m_Name: Characters_Dante
+  m_Script: {fileID: 11500000, guid: 69e7e37ac00074b4ba28e8d730a0db20, type: 3}
+  m_Name: Speech_start
   m_EditorClassIdentifier: 
-  sprites:
+  characterSprites:
   - {fileID: 21300000, guid: cdae10967caa3264a970dee1bc55d175, type: 3}
   - {fileID: 21300000, guid: 0a0c4aeed9caf66429cb2c1f38654ca2, type: 3}
-  - {fileID: 21300000, guid: f8dfb1d37a3493642abfe1bd597b4900, type: 3}
+  messages:
+  - {fileID: 11400000, guid: d9892a9e85290f9469ab554483edfe91, type: 2}
+  - {fileID: 11400000, guid: af36a521fd065d34c85aebae3222ae8d, type: 2}

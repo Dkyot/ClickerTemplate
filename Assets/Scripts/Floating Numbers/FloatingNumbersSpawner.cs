@@ -13,7 +13,6 @@ public class FloatingNumbersSpawner : MonoBehaviour
     [SerializeField] private PoolManager poolManager;
     
     private void Start() {
-        //poolManager.Preload(prefab, 10);//! ?
         AddClickerControllerEvents();
     }
 
@@ -34,7 +33,7 @@ public class FloatingNumbersSpawner : MonoBehaviour
         text.transform.SetParent(gameObject.transform, false);
     }
 
-    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, float bonusProbability) {
+    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
         textToDisplay = clickPower.ToString();
     }
 

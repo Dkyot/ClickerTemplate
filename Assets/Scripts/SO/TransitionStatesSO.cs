@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "TransitionStates_", menuName = "SO_TransitionStates")]
+[CreateAssetMenu(fileName = "TransitionState_", menuName = "SO_TransitionStates")]
 public class TransitionStatesSO : ScriptableObject
 {
     public List<TransitionCondition_Place> transitionsPlace;
@@ -13,12 +13,12 @@ public class TransitionStatesSO : ScriptableObject
 public class TransitionCondition_Place {
     public int placeIndex;
     public int minCharacterIndex;
-    public MessageSO failMessage;
+    public SpeechSO fail;
 }
 
 [Serializable]
 public class TransitionCondition_Character {
     public int characterIndex;
     public int minPlaceIndex;
-    public MessageSO failMessage;
+    public SpeechSO fail;
 }

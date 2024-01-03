@@ -5,10 +5,10 @@ using UnityEngine.Events;
 
 public class ClickerController : MonoBehaviour
 {
-    private ulong score = 0; //!
+    private ulong score = 9999990;
     private uint clickPower = 1;
     private uint PPS = 0;
-    private float bonusProbability = 0.01f;
+    private uint bonusProbability = 0;
 
     private uint upgradePricePPS = 2; //!
     private uint upgradePriceClickPower = 3;
@@ -28,7 +28,7 @@ public class ClickerController : MonoBehaviour
     public delegate void OnRefreshPricesDelegate(uint clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
 
-    public delegate void OnRefreshCurrentStatsDelegate(uint clickPower, uint PPS, float bonusProbability);
+    public delegate void OnRefreshCurrentStatsDelegate(uint clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshCurrentStatsDelegate OnRefreshCurrentStats;
 
     public UnityEvent OnIncreaseScore;
@@ -105,14 +105,14 @@ public class ClickerController : MonoBehaviour
     }
 
     public void BuyBonusProbability() {
-        if (score >= upgradePriceBonusProbability) {
+        if (score >= upgradePriceBonusProbability && bonusProbability < 100) {
             score -= upgradePriceBonusProbability;
 
             OnDecreaseScore?.Invoke();
 
             IncreaseBonusProbability();
 
-            upgradePriceBonusProbability *= 2; //!
+            upgradePriceBonusProbability *= 1; //!
 
             RefreshUIPrices();
             RefreshUIScore();
@@ -136,7 +136,7 @@ public class ClickerController : MonoBehaviour
 
     private void RandomBonus() {
         if (Random.Range(0f, 1f) <= bonusProbability) {
-            score += 500; //!
+            score += clickPower * 50; //!
 
             OnBonusTrigger?.Invoke();
             OnIncreaseScore?.Invoke();
@@ -156,7 +156,7 @@ public class ClickerController : MonoBehaviour
     }
 
     private void IncreaseBonusProbability() {
-        bonusProbability += 0.01f;
+        bonusProbability += 1;
 
         OnBuy_BonusProbability?.Invoke();
     }

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225082a683ca8174d830f01c16f4fc71, type: 3}
+  m_Name: Transitions_story
+  m_EditorClassIdentifier: 
+  transitionsPlace:
+  - placeIndex: 2
+    minCharacterIndex: 1
+    fail: {fileID: 11400000, guid: 9077eb255078a5f448b229edcd6b5073, type: 2}
+  - placeIndex: 5
+    minCharacterIndex: 2
+    fail: {fileID: 11400000, guid: 14beb6ade0a74fc4ba13ceee43f3646e, type: 2}
+  transitionsCharacter:
+  - characterIndex: 0
+    minPlaceIndex: 1
+    fail: {fileID: 11400000, guid: 3cfdaa2d79cc361499a3a9c6eda9636a, type: 2}
+  - characterIndex: 1
+    minPlaceIndex: 4
+    fail: {fileID: 11400000, guid: 1dd5807b13ce8b74baa3c0dd70b705d3, type: 2}

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e7e37ac00074b4ba28e8d730a0db20, type: 3}
+  m_Name: Speech_first_u
+  m_EditorClassIdentifier: 
+  characterSprites:
+  - {fileID: 21300000, guid: f8dfb1d37a3493642abfe1bd597b4900, type: 3}
+  - {fileID: 21300000, guid: cdae10967caa3264a970dee1bc55d175, type: 3}
+  messages:
+  - {fileID: 11400000, guid: eb5701456ff85ac4cae9cdba1d339779, type: 2}
+  - {fileID: 11400000, guid: a78304a2242c1b244aa69d926d9618f3, type: 2}

@@ -905,8 +905,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overlay: {fileID: 106838611}
   mainUI: {fileID: 1417866709}
-  places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
-  characters: {fileID: 11400000, guid: 5c863ee5297b2c540ae2f58f97934b7c, type: 2}
+  speeches: {fileID: 11400000, guid: de637c258ea1f0249aaf7d6f3a545ac0, type: 2}
+  relationshipSpeeches: {fileID: 11400000, guid: 336e58ef8b1b5e749948f57d06a59a76, type: 2}
   characterImage: {fileID: 1127819980}
   massege: {fileID: 212781224}
 --- !u!4 &321719173
@@ -1007,10 +1007,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 106838611}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 321719172}
+        m_TargetAssemblyTypeName: OverlayController, Assembly-CSharp
+        m_MethodName: ContinueButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1018,18 +1018,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1417866709}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &369981920
 MonoBehaviour:
@@ -5018,10 +5006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickerController: {fileID: 1704469801}
-  transitionStates: {fileID: 11400000, guid: fd292efc1f9b1e841a3baecc601ed691, type: 2}
-  relationshipUpgradeMessages: {fileID: 11400000, guid: f51e095b9fb549746a9bf48f321128ac, type: 2}
-  places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
-  characters: {fileID: 11400000, guid: 5c863ee5297b2c540ae2f58f97934b7c, type: 2}
+  transitionStates: {fileID: 11400000, guid: 63101a64767fa6443994e592fdea0dd3, type: 2}
   OnBuy_Place:
     m_PersistentCalls:
       m_Calls: []

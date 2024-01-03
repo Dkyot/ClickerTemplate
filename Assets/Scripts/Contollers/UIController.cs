@@ -49,10 +49,10 @@ public class UIController : MonoBehaviour
         BonusProbabilityPriceText.text = bonusProbability.ToString();
     }
 
-    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, float bonusProbability) {
+    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
         clickPowerStatsText.text = clickPower.ToString();
         PPSStatsText.text = PPS.ToString();
-        BonusProbabilityStatsText.text = bonusProbability.ToString();
+        BonusProbabilityStatsText.text = bonusProbability.ToString() + "%";
     }
 
     private void OnRefreshPrices_Relationships(uint placePrice, uint relationshipsPrice) {
