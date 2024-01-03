@@ -1710,7 +1710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf85f3ed103d6b4593213a48c595ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6292183121140852454, guid: a89857f5c2251074c847b48f24e3e499, type: 3}
+  numberPrefab: {fileID: 6292183121140852454, guid: a89857f5c2251074c847b48f24e3e499, type: 3}
   poolManager: {fileID: 1493608778}
 --- !u!224 &543114661
 RectTransform:

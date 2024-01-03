@@ -5,30 +5,30 @@ using UnityEngine.Events;
 
 public class ClickerController : MonoBehaviour
 {
-    private ulong score = 0;
+    private ulong score = 0; //!
     private uint clickPower = 1;
     private uint PPS = 0;
     private float bonusProbability = 0.01f;
 
-    private uint upgradePricePPS = 2;
+    private uint upgradePricePPS = 2; //!
     private uint upgradePriceClickPower = 3;
     private uint upgradePriceBonusProbability = 30;
 
     private float timer = 0;
-    private float cooldown = 1;
+    private const float cooldown = 1;
 
     public UnityEvent OnClick;
     public UnityEvent OnBonusTrigger;
 
     public UnityEvent OnCooldownReset;
 
-    public delegate void OnRefreshScoreDelegate(ulong a);
+    public delegate void OnRefreshScoreDelegate(ulong score);
 	public static event OnRefreshScoreDelegate OnRefreshScore;
 
-    public delegate void OnRefreshPricesDelegate(uint b, uint c, uint d);
+    public delegate void OnRefreshPricesDelegate(uint clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
 
-    public delegate void OnRefreshCurrentStatsDelegate(uint b, uint c, float d);
+    public delegate void OnRefreshCurrentStatsDelegate(uint clickPower, uint PPS, float bonusProbability);
 	public static event OnRefreshCurrentStatsDelegate OnRefreshCurrentStats;
 
     public UnityEvent OnIncreaseScore;
@@ -45,15 +45,7 @@ public class ClickerController : MonoBehaviour
     }
 
     private void Update() {
-        timer += Time.deltaTime;
-        if (timer >= cooldown) {
-            score += PPS;
-
-            OnCooldownReset?.Invoke();
-
-            RefreshUIScore();
-            timer = 0;
-        }
+        CooldownUpdate();
     }
 
     public bool Buy(uint cost) {
@@ -88,7 +80,7 @@ public class ClickerController : MonoBehaviour
 
             IncreaseClickPower();
 
-            upgradePriceClickPower *= 2;
+            upgradePriceClickPower *= 2; //!
 
             RefreshUIPrices();
             RefreshUIScore();
@@ -104,7 +96,7 @@ public class ClickerController : MonoBehaviour
 
             IncreasePPS();
 
-            upgradePricePPS *= 3;
+            upgradePricePPS *= 3; //!
 
             RefreshUIPrices();
             RefreshUIScore();
@@ -120,7 +112,7 @@ public class ClickerController : MonoBehaviour
 
             IncreaseBonusProbability();
 
-            upgradePriceBonusProbability *= 2;
+            upgradePriceBonusProbability *= 2; //!
 
             RefreshUIPrices();
             RefreshUIScore();
@@ -130,9 +122,21 @@ public class ClickerController : MonoBehaviour
     #endregion
     
     #region Auxiliary methods
+    private void CooldownUpdate() {
+        timer += Time.deltaTime;
+        if (timer >= cooldown) {
+            score += PPS;
+
+            OnCooldownReset?.Invoke();
+
+            RefreshUIScore();
+            timer = 0;
+        }
+    }
+
     private void RandomBonus() {
         if (Random.Range(0f, 1f) <= bonusProbability) {
-            score += 500;
+            score += 500; //!
 
             OnBonusTrigger?.Invoke();
             OnIncreaseScore?.Invoke();

@@ -22,19 +22,19 @@ public class RelationshipsController : MonoBehaviour
 
 
 
-    public delegate void OnRefreshPricesDelegate(uint b, uint c);
+    public delegate void OnRefreshPricesDelegate(uint placePrice, uint relationshipsPrice);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
 
     public UnityEvent OnBuy_Place;
     public UnityEvent OnBuy_Relationships;
 
-    public delegate void OnUpgradeDelegate(int a, int b);
+    public delegate void OnUpgradeDelegate(int relationshipsIndex, int placeIndex);
 	public static event OnUpgradeDelegate OnUpgrade;
 
-    public delegate void OnFailDelegate(String a);
+    public delegate void OnFailDelegate(String failMessage);
 	public static event OnFailDelegate OnFailBuy;
 
-    public delegate void OnUpgrade_RelationshipDelegate(String a);
+    public delegate void OnUpgrade_RelationshipDelegate(String relationshipMessage);
 	public static event OnUpgrade_RelationshipDelegate OnUpgrade_Relationship;
 
     private void Start() {

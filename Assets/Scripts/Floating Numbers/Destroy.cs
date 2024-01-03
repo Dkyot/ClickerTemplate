@@ -6,7 +6,7 @@ public class Destroy : MonoBehaviour
 {
     private PoolManager poolManager;
 
-    [SerializeField] private float ttl = 0.5f;
+    [SerializeField] private const float ttl = 0.5f;
     private float timer = 0;
 
     private void Update() {

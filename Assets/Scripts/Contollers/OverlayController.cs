@@ -24,29 +24,29 @@ public class OverlayController : MonoBehaviour
         massege.text = places.messages[0].message;
     }
 
-    private void ChangeOverlaySprites(int a, int b) {
+    private void ChangeOverlaySprites(int characterIndex, int placeIndex) {
         mainUI.SetActive(false);
         overlay.SetActive(true);
 
-        if (a < characters.sprites.Count)
-            characterImage.sprite = characters.sprites[a];
-        if (b < places.sprites.Count)
-            massege.text = places.messages[b].message;
+        if (characterIndex < characters.sprites.Count)
+            characterImage.sprite = characters.sprites[characterIndex];
+        if (placeIndex < places.sprites.Count)
+            massege.text = places.messages[placeIndex].message;
     }
 
-    private void ShowFailMessage(String a) {
+    private void ShowFailMessage(String failMessage) {
         mainUI.SetActive(false);
         overlay.SetActive(true);
 
-        massege.text = a;
+        massege.text = failMessage;
     }
 
     // при улучшении отношений показывать другой текст
-    private void ShowUpgradeRelationshipMessage(String a) {
+    private void ShowUpgradeRelationshipMessage(String upgradeMessage) {
         mainUI.SetActive(false);
         overlay.SetActive(true);
 
-        massege.text = a;
+        massege.text = upgradeMessage;
     }
 
     #region Event subscriptions

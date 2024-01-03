@@ -43,21 +43,21 @@ public class UIController : MonoBehaviour
         scoreText.text = a.ToString();
     }
 
-    private void OnRefreshPrices_Clicker(uint b, uint c, uint d) {
-        clickPowerPriceText.text = b.ToString();
-        PPSPriceText.text = c.ToString();
-        BonusProbabilityPriceText.text = d.ToString();
+    private void OnRefreshPrices_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
+        clickPowerPriceText.text = clickPower.ToString();
+        PPSPriceText.text = PPS.ToString();
+        BonusProbabilityPriceText.text = bonusProbability.ToString();
     }
 
-    private void OnRefreshCurrentStats_Clicker(uint b, uint c, float d) {
-        clickPowerStatsText.text = b.ToString();
-        PPSStatsText.text = c.ToString();
-        BonusProbabilityStatsText.text = d.ToString();
+    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, float bonusProbability) {
+        clickPowerStatsText.text = clickPower.ToString();
+        PPSStatsText.text = PPS.ToString();
+        BonusProbabilityStatsText.text = bonusProbability.ToString();
     }
 
-    private void OnRefreshPrices_Relationships(uint b, uint c) {
-        placePriceText.text = b.ToString();
-        relationshipsPriceText.text = c.ToString();
+    private void OnRefreshPrices_Relationships(uint placePrice, uint relationshipsPrice) {
+        placePriceText.text = placePrice.ToString();
+        relationshipsPriceText.text = relationshipsPrice.ToString();
     }
 
     private void OnIncreaseScore() {
