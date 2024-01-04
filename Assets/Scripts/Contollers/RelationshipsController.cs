@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class RelationshipsController : MonoBehaviour
 {
     [SerializeField] private ClickerController clickerController;
-    
+
     private int relationshipsIndex = 0;
     private int placeIndex = 0;
     
@@ -15,6 +15,12 @@ public class RelationshipsController : MonoBehaviour
     [SerializeField] private TransitionStatesSO transitionStates;
     [SerializeField] private PlacesSO places;
     [SerializeField] private StorySO relationshipSpeeches;
+
+    [SerializeField] private StorySO finalSpeeches;
+    private const int gameOverSpeechIndex = 0;
+    //private const int placesOverSpeechIndex = 2; //! не достигается
+    private const int relationshipsOverSpeechIndex = 1;
+    
 
     public delegate void OnRefreshPricesDelegate(uint placePrice, uint relationshipsPrice);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
@@ -37,14 +43,30 @@ public class RelationshipsController : MonoBehaviour
     public delegate void OnFailDelegate_Relationship(SpeechSO failSpeech);
 	public static event OnFailDelegate_Relationship OnFail_Relationship;
 
+    public delegate void OnGameOverDelegate(SpeechSO failSpeech);
+	public static event OnGameOverDelegate OnGameOver;
+
+    //public delegate void OnEndOfPlacesDelegate(SpeechSO failSpeech);
+	//public static event OnEndOfPlacesDelegate OnEndOfPlaces;
+
+    public delegate void OnEndOfRelationshipsDelegate(SpeechSO failSpeech);
+	public static event OnEndOfRelationshipsDelegate OnEndOfRelationships;
+
     private void Start() {
         RefreshUIPrices();
     }
 
     #region Button methods
     public void BuyPlace() {
-        if(isEndOfPlaces()) return;
-
+        if(isEndOfGame()) {
+            if (OnGameOver != null) OnGameOver(finalSpeeches.speeches[gameOverSpeechIndex]);
+            return;
+        }
+        if(isEndOfPlaces()) {
+            //if (OnEndOfPlaces != null) OnEndOfPlaces(finalSpeeches.speeches[placesOverSpeechIndex]);
+            return;
+        }
+        
         foreach (TransitionCondition_Place condition in transitionStates.transitionsPlace) {
             if (placeIndex == condition.placeIndex) {
                 if (relationshipsIndex < condition.minCharacterIndex) {
@@ -67,7 +89,14 @@ public class RelationshipsController : MonoBehaviour
     }
 
     public void BuyRelationships() {
-        if(isEndOfRelationships()) return;
+        if(isEndOfGame()) {
+            if (OnGameOver != null) OnGameOver(finalSpeeches.speeches[gameOverSpeechIndex]);
+            return;
+        }
+        if(isEndOfRelationships()) {
+            if (OnEndOfRelationships != null) OnEndOfRelationships(finalSpeeches.speeches[relationshipsOverSpeechIndex]);
+            return;
+        }
 
         foreach (TransitionCondition_Character condition in transitionStates.transitionsCharacter) {
             if (relationshipsIndex == condition.characterIndex) {
@@ -93,13 +122,15 @@ public class RelationshipsController : MonoBehaviour
 
     #region End of updates methods
     private bool isEndOfPlaces() {
-        if (placeIndex == places.sprites.Count - 1) return true;
-        return false;
+        return placeIndex == places.sprites.Count - 1;
     }
 
     private bool isEndOfRelationships() {
-        if (relationshipsIndex == relationshipSpeeches.speeches.Count - 1) return true;
-        return false;
+        return relationshipsIndex == relationshipSpeeches.speeches.Count - 1;
+    }
+
+    private bool isEndOfGame() {
+        return isEndOfPlaces() && isEndOfRelationships();
     }
     #endregion
 

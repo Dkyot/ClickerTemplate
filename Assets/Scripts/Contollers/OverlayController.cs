@@ -14,6 +14,14 @@ public class OverlayController : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI massege;
 
+    private bool finalSpeechShown = false;
+
+    public delegate void OnCloseOverlayDelegate();
+	public static event OnCloseOverlayDelegate OnCloseOverlay;
+
+    public delegate void OnCloseEndSpeechDelegate();
+	public static event OnCloseEndSpeechDelegate OnCloseEndSpeech;
+
     private int currentMessegeIndex;
     private SpeechSO currentSpeech;
 
@@ -72,6 +80,19 @@ public class OverlayController : MonoBehaviour
 
         ShowOverlay();
     }
+
+    private void ShowGameOverSpeech(SpeechSO speech) {
+        ShowOverlay();
+
+        SetSpeech(speech);
+        finalSpeechShown = true;
+    }
+
+    private void ShowEndOfRelationshipsSpeech(SpeechSO speech) {
+        ShowOverlay();
+
+        SetSpeech(speech);
+    }
     #endregion
 
     public void ContinueButton() {
@@ -81,8 +102,11 @@ public class OverlayController : MonoBehaviour
             currentMessegeIndex++;
             SetSpeechMessage(currentMessegeIndex);
         }
-        else
+        else {
             HideOverlay();
+            if (OnCloseOverlay != null) OnCloseOverlay();
+            if (OnCloseEndSpeech != null && finalSpeechShown) OnCloseEndSpeech();
+        }
     }
 
     private void ShowOverlay() {
@@ -102,6 +126,10 @@ public class OverlayController : MonoBehaviour
 
         RelationshipsController.OnFail_Place += ShowFailPlaceMessage;
         RelationshipsController.OnFail_Relationship += ShowFailRelationshipMessage;
+
+        RelationshipsController.OnGameOver += ShowGameOverSpeech;
+        //RelationshipsController.OnEndOfPlaces += ShowFinalSpeech;
+        RelationshipsController.OnEndOfRelationships += ShowEndOfRelationshipsSpeech;
     }
     #endregion
 }
