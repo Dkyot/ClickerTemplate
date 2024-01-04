@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ClickerController : MonoBehaviour
 {
-    private ulong score = 9999990;
+    private ulong score = 0;
     private uint clickPower = 1;
     private uint PPS = 0;
     private uint bonusProbability = 0;
@@ -145,19 +145,16 @@ public class ClickerController : MonoBehaviour
 
     private void IncreaseClickPower() {
         clickPower++;
-
         OnBuy_ClickPower?.Invoke();
     }
 
     private void IncreasePPS() {
         PPS++;
-
         OnBuy_PPS?.Invoke();
     }
 
     private void IncreaseBonusProbability() {
         bonusProbability += 1;
-
         OnBuy_BonusProbability?.Invoke();
     }
     #endregion

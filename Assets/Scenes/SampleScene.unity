@@ -5007,6 +5007,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickerController: {fileID: 1704469801}
   transitionStates: {fileID: 11400000, guid: 63101a64767fa6443994e592fdea0dd3, type: 2}
+  places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
+  relationshipSpeeches: {fileID: 11400000, guid: 336e58ef8b1b5e749948f57d06a59a76, type: 2}
   OnBuy_Place:
     m_PersistentCalls:
       m_Calls: []

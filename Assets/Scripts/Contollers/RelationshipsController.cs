@@ -13,8 +13,8 @@ public class RelationshipsController : MonoBehaviour
     private uint upgradePriceRelationships = 3;
 
     [SerializeField] private TransitionStatesSO transitionStates;
-    
-    //[SerializeField] private RelationshipUpgradeMessagesSO relationshipUpgradeMessages;
+    [SerializeField] private PlacesSO places;
+    [SerializeField] private StorySO relationshipSpeeches;
 
     public delegate void OnRefreshPricesDelegate(uint placePrice, uint relationshipsPrice);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
@@ -25,16 +25,11 @@ public class RelationshipsController : MonoBehaviour
     public delegate void OnUpgradeDelegate(int relationshipsIndex, int placeIndex);
 	public static event OnUpgradeDelegate OnUpgrade;
 
-    // public delegate void OnFailDelegate();
-	// public static event OnFailDelegate OnFailBuy;
-
     public delegate void OnUpgradeDelegate_Place(int placeIndex);
 	public static event OnUpgradeDelegate_Place OnUpgrade_Place;
 
     public delegate void OnUpgradeDelegate_Relationship(int relationshipsIndex);
 	public static event OnUpgradeDelegate_Relationship OnUpgrade_Relationship;
-
-
 
     public delegate void OnFailDelegate_Place(SpeechSO failSpeech);
 	public static event OnFailDelegate_Place OnFail_Place;
@@ -42,21 +37,17 @@ public class RelationshipsController : MonoBehaviour
     public delegate void OnFailDelegate_Relationship(SpeechSO failSpeech);
 	public static event OnFailDelegate_Relationship OnFail_Relationship;
 
-
     private void Start() {
         RefreshUIPrices();
     }
 
-
-
-
-
     #region Button methods
     public void BuyPlace() {
+        if(isEndOfPlaces()) return;
+
         foreach (TransitionCondition_Place condition in transitionStates.transitionsPlace) {
-            if (placeIndex == condition.placeIndex) { // если у данного места есть условие на уровень персонажа
-                if (relationshipsIndex < condition.minCharacterIndex) { // если уровень не соответствует
-                    //Debug.Log(condition.failMessage.message);
+            if (placeIndex == condition.placeIndex) {
+                if (relationshipsIndex < condition.minCharacterIndex) {
                     if (OnFail_Place != null) OnFail_Place(condition.fail);
                     return;
                 }
@@ -73,18 +64,10 @@ public class RelationshipsController : MonoBehaviour
             if (OnUpgrade != null) OnUpgrade(relationshipsIndex, placeIndex);
             RefreshUIPrices();
         }
-        else {
-            Debug.Log("-");
-        }
     }
 
-
-
-
-
-
-
     public void BuyRelationships() {
+        if(isEndOfRelationships()) return;
 
         foreach (TransitionCondition_Character condition in transitionStates.transitionsCharacter) {
             if (relationshipsIndex == condition.characterIndex) {
@@ -105,17 +88,20 @@ public class RelationshipsController : MonoBehaviour
             if (OnUpgrade != null) OnUpgrade(relationshipsIndex, placeIndex);
             RefreshUIPrices();
         }
-        else {
-            Debug.Log("=");
-        }
     }
     #endregion
 
+    #region End of updates methods
+    private bool isEndOfPlaces() {
+        if (placeIndex == places.sprites.Count - 1) return true;
+        return false;
+    }
 
-
-
-
-
+    private bool isEndOfRelationships() {
+        if (relationshipsIndex == relationshipSpeeches.speeches.Count - 1) return true;
+        return false;
+    }
+    #endregion
 
     #region UI methods
     private void RefreshUIPrices() {

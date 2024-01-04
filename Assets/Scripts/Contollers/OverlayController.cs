@@ -2,7 +2,6 @@ using UnityEngine;
 
 using TMPro;
 using UnityEngine.UI;
-//using UnityEngine.UIElements;
 
 public class OverlayController : MonoBehaviour
 {
@@ -18,7 +17,6 @@ public class OverlayController : MonoBehaviour
     private int currentMessegeIndex;
     private SpeechSO currentSpeech;
 
-    
     private void Awake() {
         AddRelationshipsControllerEvents();
 
@@ -27,6 +25,7 @@ public class OverlayController : MonoBehaviour
         SetStartSpeech();
     }
 
+    #region Set message methods
     private void SetStartSpeech() {
         currentMessegeIndex = 0;
         currentSpeech = speeches.speeches[0];
@@ -43,26 +42,9 @@ public class OverlayController : MonoBehaviour
         currentMessegeIndex = 0;
         SetSpeechMessage(currentMessegeIndex);
     }
+    #endregion
 
-
-    // private void ChangeOverlayMessage(int characterIndex, int placeIndex) {
-    //     // ShowOverlay();
-
-    //     // currentMessegeIndex = 0;
-    //     // currentSpeechIndex = characterIndex;
-
-    //     // SetMessage();
-
-    //     //! при переходе должна быть реплика перехода
-    // }
-
-
-
-
-
-
-
-
+    #region Show message methods
     private void ShowFailPlaceMessage(SpeechSO speech) {
         ShowOverlay();
 
@@ -75,20 +57,7 @@ public class OverlayController : MonoBehaviour
         SetSpeech(speech);
     }
 
-
-
-
-
-
-    // // при улучшении отношений показывать другой текст
-    // private void ShowUpgradeRelationshipMessage(SpeechSO speech) {
-    //     ShowOverlay();
-
-    //     SetSpeech(speech);
-    // }
-
-
-    private void foow(int placeIndex) {//Debug.Log(placeIndex);
+    private void ShowUpgradePlaceMessage(int placeIndex) {
         currentMessegeIndex = 0;
         currentSpeech = speeches.speeches[placeIndex];
         SetSpeechMessage(currentMessegeIndex);
@@ -96,19 +65,14 @@ public class OverlayController : MonoBehaviour
         ShowOverlay();
     }
 
-    private void vvvoow(int placeIndex) {//Relationship
+    private void ShowUpgradeRelationshipMessage(int placeIndex) {
         currentMessegeIndex = 0;
         currentSpeech = relationshipSpeeches.speeches[placeIndex];
         SetSpeechMessage(currentMessegeIndex);
 
         ShowOverlay();
     }
-
-
-
-
-
-
+    #endregion
 
     public void ContinueButton() {
         int lastMessagesIndex = currentSpeech.messages.Count - 1;
@@ -120,15 +84,6 @@ public class OverlayController : MonoBehaviour
         else
             HideOverlay();
     }
-
-
-
-
-
-
-
-
-
 
     private void ShowOverlay() {
         mainUI.SetActive(false);
@@ -142,13 +97,11 @@ public class OverlayController : MonoBehaviour
 
     #region Event subscriptions
     private void AddRelationshipsControllerEvents() {
-        RelationshipsController.OnUpgrade_Place += foow;
-        RelationshipsController.OnUpgrade_Relationship += vvvoow;
+        RelationshipsController.OnUpgrade_Place += ShowUpgradePlaceMessage;
+        RelationshipsController.OnUpgrade_Relationship += ShowUpgradeRelationshipMessage;
 
         RelationshipsController.OnFail_Place += ShowFailPlaceMessage;
         RelationshipsController.OnFail_Relationship += ShowFailRelationshipMessage;
-        
-        //RelationshipsController.OnUpgrade_Relationship += ShowUpgradeRelationshipMessage;
     }
     #endregion
 }

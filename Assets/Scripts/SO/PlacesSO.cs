@@ -5,5 +5,4 @@ using UnityEngine;
 public class PlacesSO : ScriptableObject
 {
     public List<Sprite> sprites;
-    public List<MessageSO> messages;
 }
