@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e7e37ac00074b4ba28e8d730a0db20, type: 3}
   m_Name: Speech_F
   m_EditorClassIdentifier: 
-  characterSprites: []
+  characterSprites:
+  - {fileID: 21300000, guid: cdae10967caa3264a970dee1bc55d175, type: 3}
   messages:
   - {fileID: 11400000, guid: a182902e65d5b0f43adbbdd20819b0a3, type: 2}

@@ -49,7 +49,7 @@ public class UIController : MonoBehaviour
         BonusProbabilityPriceText.text = bonusProbability.ToString();
     }
 
-    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
+    private void OnRefreshCurrentStats_Clicker(ulong clickPower, uint PPS, uint bonusProbability) {
         clickPowerStatsText.text = clickPower.ToString();
         PPSStatsText.text = PPS.ToString();
         BonusProbabilityStatsText.text = bonusProbability.ToString() + "%";

@@ -33,7 +33,7 @@ public class FloatingNumbersSpawner : MonoBehaviour
         text.transform.SetParent(gameObject.transform, false);
     }
 
-    private void OnRefreshCurrentStats_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
+    private void OnRefreshCurrentStats_Clicker(ulong clickPower, uint PPS, uint bonusProbability) {
         textToDisplay = clickPower.ToString();
     }
 

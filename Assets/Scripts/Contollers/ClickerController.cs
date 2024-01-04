@@ -17,6 +17,8 @@ public class ClickerController : MonoBehaviour
     private float timer = 0;
     private const float cooldown = 1;
 
+    [SerializeField] private TemporaryBonusesController bonusesController;
+
     public UnityEvent OnClick;
     public UnityEvent OnBonusTrigger;
 
@@ -28,7 +30,7 @@ public class ClickerController : MonoBehaviour
     public delegate void OnRefreshPricesDelegate(uint clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
 
-    public delegate void OnRefreshCurrentStatsDelegate(uint clickPower, uint PPS, uint bonusProbability);
+    public delegate void OnRefreshCurrentStatsDelegate(ulong clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshCurrentStatsDelegate OnRefreshCurrentStats;
 
     public UnityEvent OnIncreaseScore;
@@ -40,6 +42,8 @@ public class ClickerController : MonoBehaviour
     public UnityEvent OnUnsuccessfulBuy;
 
     private void Start() {
+        AddBonusEvents();
+
         RefreshUIScore();
         RefreshUIPrices();
     }
@@ -63,7 +67,7 @@ public class ClickerController : MonoBehaviour
 
     #region Button methods
     public void Click() {
-        score += clickPower;
+        score += clickPower * bonusesController.GetClickPowerBonus();
 
         OnClick?.Invoke();
         OnIncreaseScore?.Invoke();
@@ -125,7 +129,7 @@ public class ClickerController : MonoBehaviour
     private void CooldownUpdate() {
         timer += Time.deltaTime;
         if (timer >= cooldown) {
-            score += PPS;
+            score += PPS * bonusesController.GetPPSBonus();
 
             OnCooldownReset?.Invoke();
 
@@ -166,7 +170,17 @@ public class ClickerController : MonoBehaviour
 
     private void RefreshUIPrices() {
         if (OnRefreshPrices != null) OnRefreshPrices(upgradePriceClickPower, upgradePricePPS, upgradePriceBonusProbability);
-        if (OnRefreshCurrentStats != null) OnRefreshCurrentStats(clickPower, PPS, bonusProbability);
+        if (OnRefreshCurrentStats != null) OnRefreshCurrentStats(
+            clickPower * bonusesController.GetClickPowerBonus(), 
+            PPS * bonusesController.GetPPSBonus(), 
+            bonusProbability);
+    }
+    #endregion
+
+    #region Event subscriptions
+    private void AddBonusEvents() {
+        TemporaryBonusesController.OnEndBonus += RefreshUIPrices;
+        TemporaryBonusesController.OnStartBonus += RefreshUIPrices;
     }
     #endregion
 }

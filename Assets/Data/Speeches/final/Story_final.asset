@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speeches:
   - {fileID: 11400000, guid: e72f6c0de979bd94ca8e77821a4494ac, type: 2}
-  - {fileID: 11400000, guid: 7d4ab4964ef470144b1e0f81be42e6ec, type: 2}
   - {fileID: 11400000, guid: 247d47bd1ccf71645a724e844b714375, type: 2}
+  - {fileID: 11400000, guid: 7d4ab4964ef470144b1e0f81be42e6ec, type: 2}
