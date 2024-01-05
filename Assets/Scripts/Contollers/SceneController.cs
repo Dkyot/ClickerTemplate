@@ -11,13 +11,20 @@ public class SceneController : MonoBehaviour
         AddRelationshipsControllerEvents();
 
         backgroundImage = backgroundImage.GetComponent<Image>();
-        backgroundImage.sprite = places.sprites[0];
+        SetFirstBackground();
+    }
+
+    #region UI methods
+    private void SetFirstBackground() {
+        var firstPlace = places.sprites[0];
+        backgroundImage.sprite = firstPlace;
     }
 
     private void ChangeBackgroundImage(int characterIndex, int placeIndex) {
         if (placeIndex < places.sprites.Count)
             backgroundImage.sprite = places.sprites[placeIndex];
     }
+    #endregion
 
     #region Event subscriptions
     private void AddRelationshipsControllerEvents() {

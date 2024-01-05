@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TemporaryBonusesController : MonoBehaviour
@@ -44,11 +43,4 @@ public class TemporaryBonusesController : MonoBehaviour
         PPSBonusIsActive = false;
         if (OnEndBonus != null) OnEndBonus();
     }
-
-    // float timer = 5f;
-    // float ti = 0;
-    // private void Update() {
-    //     ti += Time.deltaTime;
-    //     if (ti >= timer) StartClickPowerBonus();
-    // }
 }

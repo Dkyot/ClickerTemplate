@@ -27,20 +27,12 @@ public class UIController : MonoBehaviour
     }
 
     #region Events methods
-    private void OnClick() {
+    private void OnClick() {}
+    private void OnBonusTrigger() {}
+    private void OnCooldownReset() {}
 
-    }
-
-    private void OnBonusTrigger() {
-
-    }
-
-    private void OnCooldownReset() {
-
-    }
-
-    private void OnRefreshScore(ulong a) {
-        scoreText.text = a.ToString();
+    private void OnRefreshScore(ulong score) {
+        scoreText.text = score.ToString();
     }
 
     private void OnRefreshPrices_Clicker(uint clickPower, uint PPS, uint bonusProbability) {
@@ -60,29 +52,12 @@ public class UIController : MonoBehaviour
         relationshipsPriceText.text = relationshipsPrice.ToString();
     }
 
-    private void OnIncreaseScore() {
-
-    }
-
-    private void OnDecreaseScore() {
-
-    }
-
-    private void OnBuy_ClickPower() {
-
-    }
-
-    private void OnBuy_PPS() {
-
-    }
-
-    private void OnBuy_BonusProbability() {
-
-    }
-
-    private void OnUnsuccessfulBuy() {
-
-    }
+    private void OnIncreaseScore() {}
+    private void OnDecreaseScore() {}
+    private void OnBuy_ClickPower() {}
+    private void OnBuy_PPS() {}
+    private void OnBuy_BonusProbability() {}
+    private void OnUnsuccessfulBuy() {}
     #endregion
 
     #region Event subscriptions

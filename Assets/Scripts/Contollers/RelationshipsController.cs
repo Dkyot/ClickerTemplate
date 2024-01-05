@@ -6,54 +6,67 @@ public class RelationshipsController : MonoBehaviour
 {
     [SerializeField] private ClickerController clickerController;
 
+    // current state
     private int relationshipsIndex = 0;
     private int placeIndex = 0;
     
+    // upgrade prices
     private uint upgradePricePlace = 2;
     private uint upgradePriceRelationships = 3;
 
-    [SerializeField] private TransitionStatesSO transitionStates;
     [SerializeField] private PlacesSO places;
-    [SerializeField] private StorySO relationshipSpeeches;
 
+    // limitations in improvement
+    [SerializeField] private TransitionStatesSO transitionStates;
+
+    [Header("Speeches SO")]
+    [SerializeField] private StorySO relationshipSpeeches;
+    [SerializeField] private StorySO speeches;//при переходах
     [SerializeField] private StorySO finalSpeeches;
+
+    // const
     private const int gameOverSpeechIndex = 0;
-    //private const int placesOverSpeechIndex = 2; //! не достигается
     private const int relationshipsOverSpeechIndex = 1;
-    
 
     public delegate void OnRefreshPricesDelegate(uint placePrice, uint relationshipsPrice);
 	public static event OnRefreshPricesDelegate OnRefreshPrices;
 
+    // buy & upgrade events
     public UnityEvent OnBuy_Place;
     public UnityEvent OnBuy_Relationships;
 
     public delegate void OnUpgradeDelegate(int relationshipsIndex, int placeIndex);
 	public static event OnUpgradeDelegate OnUpgrade;
 
-    public delegate void OnUpgradeDelegate_Place(int placeIndex);
+    public delegate void OnUpgradeDelegate_Place(SpeechSO upgradeSpeech);
 	public static event OnUpgradeDelegate_Place OnUpgrade_Place;
 
-    public delegate void OnUpgradeDelegate_Relationship(int relationshipsIndex);
+    public delegate void OnUpgradeDelegate_Relationship(SpeechSO upgradeSpeech);
 	public static event OnUpgradeDelegate_Relationship OnUpgrade_Relationship;
 
+    // fail events
     public delegate void OnFailDelegate_Place(SpeechSO failSpeech);
 	public static event OnFailDelegate_Place OnFail_Place;
 
     public delegate void OnFailDelegate_Relationship(SpeechSO failSpeech);
 	public static event OnFailDelegate_Relationship OnFail_Relationship;
 
-    public delegate void OnGameOverDelegate(SpeechSO failSpeech);
+    // game main points events
+    public delegate void OnStartGameDelegate(SpeechSO speech);
+	public static event OnStartGameDelegate OnStartGame;
+
+    public delegate void OnGameOverDelegate(SpeechSO speech);
 	public static event OnGameOverDelegate OnGameOver;
 
-    //public delegate void OnEndOfPlacesDelegate(SpeechSO failSpeech);
-	//public static event OnEndOfPlacesDelegate OnEndOfPlaces;
-
-    public delegate void OnEndOfRelationshipsDelegate(SpeechSO failSpeech);
+    public delegate void OnEndOfRelationshipsDelegate(SpeechSO speech);
 	public static event OnEndOfRelationshipsDelegate OnEndOfRelationships;
 
     private void Start() {
         RefreshUIPrices();
+
+        // show opening speech
+        var openingSpeech = speeches.speeches[0];
+        if (OnStartGame != null) OnStartGame(openingSpeech);
     }
 
     #region Button methods
@@ -82,7 +95,7 @@ public class RelationshipsController : MonoBehaviour
             upgradePricePlace *= 1; //!
 
             OnBuy_Place?.Invoke();
-            if (OnUpgrade_Place != null) OnUpgrade_Place(placeIndex);
+            if (OnUpgrade_Place != null) OnUpgrade_Place(speeches.speeches[placeIndex]);
             if (OnUpgrade != null) OnUpgrade(relationshipsIndex, placeIndex);
             RefreshUIPrices();
         }
@@ -113,7 +126,7 @@ public class RelationshipsController : MonoBehaviour
             upgradePriceRelationships *= 1; //!
 
             OnBuy_Relationships?.Invoke();
-            if (OnUpgrade_Relationship != null) OnUpgrade_Relationship(relationshipsIndex);
+            if (OnUpgrade_Relationship != null) OnUpgrade_Relationship(relationshipSpeeches.speeches[relationshipsIndex]);
             if (OnUpgrade != null) OnUpgrade(relationshipsIndex, placeIndex);
             RefreshUIPrices();
         }

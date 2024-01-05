@@ -5,15 +5,18 @@ using UnityEngine.Events;
 
 public class ClickerController : MonoBehaviour
 {
+    // current state
     private ulong score = 0;
     private uint clickPower = 1;
     private uint PPS = 0;
     private uint bonusProbability = 0;
 
+    // upgrade prices
     private uint upgradePricePPS = 2; //!
     private uint upgradePriceClickPower = 3;
     private uint upgradePriceBonusProbability = 30;
 
+    // PPS timer
     private float timer = 0;
     private const float cooldown = 1;
 
@@ -21,9 +24,15 @@ public class ClickerController : MonoBehaviour
 
     public UnityEvent OnClick;
     public UnityEvent OnBonusTrigger;
-
     public UnityEvent OnCooldownReset;
+    public UnityEvent OnIncreaseScore;
+    public UnityEvent OnDecreaseScore; 
+    public UnityEvent OnBuy_ClickPower;
+    public UnityEvent OnBuy_PPS;
+    public UnityEvent OnBuy_BonusProbability;
+    public UnityEvent OnUnsuccessfulBuy;
 
+    // static events
     public delegate void OnRefreshScoreDelegate(ulong score);
 	public static event OnRefreshScoreDelegate OnRefreshScore;
 
@@ -33,13 +42,6 @@ public class ClickerController : MonoBehaviour
     public delegate void OnRefreshCurrentStatsDelegate(ulong clickPower, uint PPS, uint bonusProbability);
 	public static event OnRefreshCurrentStatsDelegate OnRefreshCurrentStats;
 
-    public UnityEvent OnIncreaseScore;
-    public UnityEvent OnDecreaseScore;
-    
-    public UnityEvent OnBuy_ClickPower;
-    public UnityEvent OnBuy_PPS;
-    public UnityEvent OnBuy_BonusProbability;
-    public UnityEvent OnUnsuccessfulBuy;
 
     private void Start() {
         AddBonusEvents();

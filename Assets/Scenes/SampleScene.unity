@@ -905,8 +905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overlay: {fileID: 106838611}
   mainUI: {fileID: 1417866709}
-  speeches: {fileID: 11400000, guid: de637c258ea1f0249aaf7d6f3a545ac0, type: 2}
-  relationshipSpeeches: {fileID: 11400000, guid: 336e58ef8b1b5e749948f57d06a59a76, type: 2}
   characterImage: {fileID: 1127819980}
   massege: {fileID: 212781224}
 --- !u!4 &321719173
@@ -5058,6 +5056,7 @@ MonoBehaviour:
   transitionStates: {fileID: 11400000, guid: 63101a64767fa6443994e592fdea0dd3, type: 2}
   places: {fileID: 11400000, guid: 5bf42c533bf1c3741b4df017fddc87e1, type: 2}
   relationshipSpeeches: {fileID: 11400000, guid: 336e58ef8b1b5e749948f57d06a59a76, type: 2}
+  speeches: {fileID: 11400000, guid: de637c258ea1f0249aaf7d6f3a545ac0, type: 2}
   finalSpeeches: {fileID: 11400000, guid: 96b902150c0645942a2985cda5a6272a, type: 2}
   OnBuy_Place:
     m_PersistentCalls:
